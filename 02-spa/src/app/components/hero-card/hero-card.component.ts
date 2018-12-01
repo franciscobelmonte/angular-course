@@ -21,7 +21,7 @@ export class HeroCardComponent implements OnInit {
   }
 
   routeToHero() {
-    // this._router.navigate(['/hero', this.heroId]);
-    this.heroSelect.emit(this.heroId);
+    this._router.navigate(['/hero', this.heroId]);
+    // this.heroSelect.emit(this.heroId);
   }
 }

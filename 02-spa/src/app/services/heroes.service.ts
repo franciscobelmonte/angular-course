@@ -75,16 +75,20 @@ export class HeroesService {
         const results: Heroe[] = [];
         search = search.toLowerCase();
 
+        let index = 0;
         for (const heroe of this.heroes) {
             if (heroe.name.toLowerCase().includes(search)) {
+                heroe.id = index;
                 results.push(heroe);
             }
+            index++;
         }
         return results;
     }
 }
 
 export interface Heroe {
+    id?: number;
     name: string;
     bio: string;
     img: string;
