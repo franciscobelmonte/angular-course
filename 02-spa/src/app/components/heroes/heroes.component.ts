@@ -19,7 +19,6 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit() {
     this.heroes = this._heroesServices.getHeroes();
-    console.log(this.heroes);
   }
 
   routeToHero(heroId: number) {

@@ -61,9 +61,7 @@ export class HeroesService {
         }
     ];
 
-    constructor () {
-        console.log('Service ready to use');
-    }
+    constructor () { }
 
     getHeroes(): Heroe[] {
         return this.heroes;
@@ -71,6 +69,18 @@ export class HeroesService {
 
     getHero(id: number): Heroe {
         return this.heroes[id];
+    }
+
+    searchHeroes (search: string): Heroe[] {
+        const results: Heroe[] = [];
+        search = search.toLowerCase();
+
+        for (const heroe of this.heroes) {
+            if (heroe.name.toLowerCase().includes(search)) {
+                results.push(heroe);
+            }
+        }
+        return results;
     }
 }
 
