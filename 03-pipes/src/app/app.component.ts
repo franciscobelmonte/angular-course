@@ -11,4 +11,8 @@ export class AppComponent {
   numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   PI = Math.PI;
+
+  percent = 0.234;
+
+  salary = 1234.5;
 }
