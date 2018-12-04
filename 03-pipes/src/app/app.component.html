@@ -81,6 +81,11 @@
                 <td>number:'.2-2'</td>
                 <td>{{ salary | number:'.2-2' }}</td>
             </tr>
+            <tr>
+                <td>{{ promise }}</td>
+                <td>async</td>
+                <td>{{ promise | async }}</td>
+            </tr>
         </tbody>
     </table>
 
@@ -88,4 +93,7 @@
     <ul>
         <li *ngFor="let number of numbers | slice:5:20">{{ number }}</li>
     </ul>
+
+    <h3>JSON</h3>
+    <pre>{{ hero | json }}</pre>
 </div>

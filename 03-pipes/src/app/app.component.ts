@@ -15,4 +15,20 @@ export class AppComponent {
   percent = 0.234;
 
   salary = 1234.5;
+
+  hero = {
+    name: 'Logan',
+    code: 'Wolverine',
+    age: 200,
+    address: {
+      street: 'Graymalkin Lane',
+      number: 1407
+    }
+  };
+
+  promise = new Promise((resolve, rejected) => {
+    setTimeout(() => {
+      resolve('Promise ended');
+    }, 3500);
+  });
 }
