@@ -111,6 +111,14 @@
                 <td>capitalize:false</td>
                 <td>{{ fullname | capitalize:false }}</td>
             </tr>
+            <tr>
+                <td>{{ name }}</td>
+                <td>
+                    password:{{ hide }}
+                    <button (click)="hide = !hide;" class="btn btn-outline-primary">Show/Hide</button>
+                </td>
+                <td>{{ name | password:hide }}</td>
+            </tr>
         </tbody>
     </table>
 

@@ -37,4 +37,6 @@ export class AppComponent {
   fullname = 'franCIsco BELmonTe RUIz';
 
   video = 'tgbNymZ7vqY';
+
+  hide = true;
 }
