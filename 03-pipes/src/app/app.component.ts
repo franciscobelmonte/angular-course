@@ -31,4 +31,6 @@ export class AppComponent {
       resolve('Promise ended');
     }, 3500);
   });
+
+  date = new Date();
 }
