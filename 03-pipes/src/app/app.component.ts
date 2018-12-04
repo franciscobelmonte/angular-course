@@ -33,4 +33,6 @@ export class AppComponent {
   });
 
   date = new Date();
+
+  fullname = 'franCIsco BELmonTe RUIz';
 }
