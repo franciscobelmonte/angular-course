@@ -11,11 +11,20 @@ export class SpotifyService {
   }
 
   getNewReleases () {
+    return this.http
+      .get('https://api.spotify.com/v1/browse/new-releases?limit=20', this.getHeaders());
+  }
+
+  searchArtists (term: string) {
+    return this.http
+      .get(`https://api.spotify.com/v1/search?q=${term}&type=artist&limit=15`, this.getHeaders());
+  }
+
+  private getHeaders() {
     const headers = new HttpHeaders({
-      'Authorization': 'Bearer BQBG7DQ6S6S0kL34jRbnrJzp1ZAhI8QLBSkpYkejPCInBVMUzqF_boQHbvF1jCDDzL6AvsLGEsNtvZ9ETg8'
+      'Authorization': 'Bearer BQCGo_v-gnjunT3V86FTtxjwRgXqcvcOzNYgetLuV-_nNXdZNg87qmLfI7kp_yoCPqzqvr2rSkikUMPsuGg'
     });
 
-    return this.http
-      .get('https://api.spotify.com/v1/browse/new-releases?limit=20', { headers});
+    return {headers};
   }
 }
