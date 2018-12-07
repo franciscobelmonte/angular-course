@@ -20,6 +20,10 @@ export class SpotifyService {
       .pipe(map(response => response['artists'].items));
   }
 
+  getArtist (id: string) {
+    return this.query(`artists/${id}`);
+  }
+
   private query(query: string) {
     const url = 'https://api.spotify.com/v1/';
 

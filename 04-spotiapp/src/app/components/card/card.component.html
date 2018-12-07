@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card puntero" (click)="routeToArtist(item)">
     <img class="card-img-top" [src]="item.images | noimage" alt="{{ item.name }}">
     <div class="card-body">
         <h5 class="card-title">{{ item.name }}</h5>
