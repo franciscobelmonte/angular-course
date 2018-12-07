@@ -10,14 +10,15 @@ import { HomeComponent } from './components/home/home.component';
 import { SearcherComponent } from './components/searcher/searcher.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavbarComponent } from './components/share/navbar/navbar.component';
+import { CardComponent } from './components/card/card.component';
+import { LoadingComponent } from './components/share/loading/loading.component';
 
 // Import routes
 import { ROUTES } from './app.routes';
 
 // Import pipes
 import { NoimagePipe } from './pipes/noimage.pipe';
-import { CardComponent } from './components/card/card.component';
-import { LoadingComponent } from './components/share/loading/loading.component';
+import { SafeDomPipe } from './pipes/safe-dom.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoadingComponent } from './components/share/loading/loading.component';
     ArtistComponent,
     NavbarComponent,
     NoimagePipe,
+    SafeDomPipe,
     CardComponent,
     LoadingComponent
   ],
