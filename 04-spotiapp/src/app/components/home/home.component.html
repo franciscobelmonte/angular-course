@@ -1,5 +1,10 @@
 <app-loading *ngIf="loading"></app-loading>
 
+<div class="alert alert-danger animated fadeIn" *ngIf="error.message !== ''">
+    <h3>Error</h3>
+    <p>{{ error.message }}</p>
+</div>
+
 <div class="card-columns m-5 animated fadeIn">
     <app-card *ngFor="let release of newReleases" [item]="release"></app-card>
 </div>
