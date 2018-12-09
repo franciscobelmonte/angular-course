@@ -1,9 +1,14 @@
 <ion-header>
-    <ion-navbar>
+    <ion-navbar color="primary">
         <ion-title>Pending</ion-title>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    <h2>Pending</h2>
+<ion-content>
+    <img src="../../assets/imgs/pending.jpg">
+    <ion-list>
+        <button ion-item *ngFor="let list of todoService.lists" (click)="showList(list)">
+            {{ list.title }}
+        </button>
+    </ion-list>
 </ion-content>

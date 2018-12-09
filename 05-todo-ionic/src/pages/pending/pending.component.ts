@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { TodoService } from "../../services/todo.service";
+import { TodoList } from '../../models/todo-list.model';
 
 @Component({
     selector: 'page-pending',
@@ -7,7 +8,11 @@ import { TodoService } from "../../services/todo.service";
 })
 export class PendingPage {
     
-    constructor (private todoService: TodoService ) {
+    constructor (public todoService: TodoService ) {
 
+    }
+
+    showList (list: TodoList) {
+        console.log(list);
     }
 }
