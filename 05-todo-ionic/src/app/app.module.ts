@@ -10,6 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { TabsPage } from '../pages/tabs/tabs';
 import { PendingPage } from '../pages/pending/pending.component';
 import { CompletedPage } from '../pages/completed/completed.component';
+import { AddListPage } from '../pages/add-list/add-list.component';
 
 // Import services
 import { TodoService } from '../services/todo.service';
@@ -19,7 +20,8 @@ import { TodoService } from '../services/todo.service';
     MyApp,
     TabsPage,
     PendingPage,
-    CompletedPage
+    CompletedPage,
+    AddListPage
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,8 @@ import { TodoService } from '../services/todo.service';
     MyApp,
     TabsPage,
     PendingPage,
-    CompletedPage
+    CompletedPage,
+    AddListPage
   ],
   providers: [
     StatusBar,
