@@ -19,7 +19,10 @@ export class PendingPage {
     }
 
     showList (list: TodoList) {
-        console.log(list);
+        this.navCtrl.push(AddListPage, {
+            title: list.title,
+            list: list
+        });
     }
 
     routeToAddListPage () {
