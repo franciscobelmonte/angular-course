@@ -15,13 +15,17 @@ import { AddListPage } from '../pages/add-list/add-list.component';
 // Import services
 import { TodoService } from '../services/todo.service';
 
+// Import pipes
+import { FilterCompletedPipe } from '../pipes/filter-completed/filter-completed';
+
 @NgModule({
   declarations: [
     MyApp,
     TabsPage,
     PendingPage,
     CompletedPage,
-    AddListPage
+    AddListPage,
+    FilterCompletedPipe
   ],
   imports: [
     BrowserModule,
