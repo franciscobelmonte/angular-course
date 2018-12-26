@@ -16,6 +16,13 @@ export class TodoService {
         this.saveListsToStorage();
     }
 
+    deleteList(listToDelete: TodoList){
+        this.lists = this.lists.filter(list => {
+            return list.id != listToDelete.id
+        });
+        this.saveListsToStorage();
+    }
+
     saveListsToStorage() {
         localStorage.setItem('lists', JSON.stringify(this.lists));
     }

@@ -50,4 +50,8 @@ export class PendingPage {
 
         alert.present();
     }
+
+    deleteList(list: TodoList) {
+        this.todoService.deleteList(list);
+    }
 }
