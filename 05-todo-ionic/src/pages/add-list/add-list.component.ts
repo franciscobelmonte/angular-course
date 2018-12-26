@@ -26,7 +26,11 @@ export class AddListPage {
         this.itemToAdd = '';
     }
 
-    checkOrUncheckItem (item: TodoItem) {
+    checkOrUncheckItem(item: TodoItem) {
         item.completed = !item.completed;
+    }
+
+    deleteItem(index: number) {
+        this.list.items.splice(index, 1);
     }
 }
