@@ -13,6 +13,7 @@ export class AddListPage {
 
     constructor(public todoService: TodoService, private navParams: NavParams) {
         this.list = new TodoList(this.navParams.get('title'));
+        this.todoService.addList(this.list);
     }
 
     addItem() {

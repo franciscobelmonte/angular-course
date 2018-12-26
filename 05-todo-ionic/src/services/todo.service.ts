@@ -8,10 +8,22 @@ export class TodoService {
     lists: TodoList[] = [];
 
     constructor () {
-        const list1 = new TodoList('Search for infinity gems');
-        const list2 = new TodoList('Heroes to be defeated');
+        this.loadListsFromStorage();
+    }
 
-        this.lists.push(list1, list2);
+    addList(list: TodoList) {
+        this.lists.push(list);
+        this.saveListsToStorage();
+    }
+
+    saveListsToStorage() {
+        localStorage.setItem('lists', JSON.stringify(this.lists));
+    }
+
+    loadListsFromStorage() {
+        if(localStorage.getItem('lists')){
+            this.lists = JSON.parse(localStorage.getItem('lists'));
+        }
     }
 
 }
