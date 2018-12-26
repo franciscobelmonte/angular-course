@@ -1,21 +1,24 @@
 <ion-header>
     <ion-navbar color="primary">
-        <ion-title>{{list.title}}</ion-title>
+        <ion-title>{{ list.title }}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content>
     <ion-list>
-        <ion-list-header>Tasks to do</ion-list-header>
+        <ion-list-header>Enter tasks</ion-list-header>
         <ion-item>
             <ion-label floating>New task</ion-label>
-            <ion-input type="text"></ion-input>
+            <ion-input [(ngModel)]="itemToAdd" (keyup.enter)="addItem()" type="text"></ion-input>
         </ion-item>
     </ion-list>
 
-    <ion-list>
-        <button ion-item detail-none>
-            <ion-icon name="square-outline" item-start></ion-icon> Example task
+    <ion-list *ngIf="list.items.length > 0">
+        <ion-list-header>Tasks to do</ion-list-header>
+        <button ion-item detail-none class="animated fadeInDown" *ngFor="let item of list.items" (click)="checkOrUncheckItem(item)">
+                <ion-icon name="checkbox-outline" item-start *ngIf="item.completed"></ion-icon> 
+                <ion-icon name="square-outline" item-start *ngIf="!item.completed"></ion-icon> 
+                {{ item.description }}
         </button>
     </ion-list>
 </ion-content>
