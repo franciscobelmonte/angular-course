@@ -1,6 +1,4 @@
 import { Component } from "@angular/core";
-import { TodoService } from "../../services/todo.service";
-import { TodoList } from '../../models/todo-list.model';
 import { NavController, AlertController } from "ionic-angular";
 import { AddListPage } from '../add-list/add-list.component';
 
@@ -10,22 +8,14 @@ import { AddListPage } from '../add-list/add-list.component';
 })
 export class PendingPage {
     
-    constructor (
-        public todoService: TodoService, 
+    constructor(
         private navCtrl: NavController,
         private alertCtrl: AlertController
     ) {
 
     }
 
-    showList (list: TodoList) {
-        this.navCtrl.push(AddListPage, {
-            title: list.title,
-            list: list
-        });
-    }
-
-    routeToAddListPage () {
+    routeToAddListPage() {
         const alert = this.alertCtrl.create({
             title: 'New list',
             message: 'List name',
@@ -51,7 +41,5 @@ export class PendingPage {
         alert.present();
     }
 
-    deleteList(list: TodoList) {
-        this.todoService.deleteList(list);
-    }
+    
 }

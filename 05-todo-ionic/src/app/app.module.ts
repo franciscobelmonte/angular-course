@@ -11,6 +11,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { PendingPage } from '../pages/pending/pending.component';
 import { CompletedPage } from '../pages/completed/completed.component';
 import { AddListPage } from '../pages/add-list/add-list.component';
+import { ListsComponent } from '../components/lists.component';
 
 // Import services
 import { TodoService } from '../services/todo.service';
@@ -25,7 +26,8 @@ import { FilterCompletedPipe } from '../pipes/filter-completed/filter-completed'
     PendingPage,
     CompletedPage,
     AddListPage,
-    FilterCompletedPipe
+    FilterCompletedPipe,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
