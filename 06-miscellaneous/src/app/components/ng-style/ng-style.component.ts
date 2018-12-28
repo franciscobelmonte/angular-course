@@ -11,7 +11,7 @@ import { Component, OnInit } from '@angular/core';
       <i class="fas fa-plus"></i>
     </button>
 
-    <button class="btn btn-primary" (click)="size = size - 5">
+    <button class="btn btn-primary ml-2" (click)="size = size - 5">
       <i class="fas fa-minus"></i>
     </button>
   `,
