@@ -14,3 +14,11 @@
 <button class="btn btn-danger" (click)="properties.danger = !properties.danger" [ngClass]="{'btn-danger': properties.danger, 'btn-info': !properties.danger}">
     Change
 </button>
+
+<br><br>
+
+<button class="btn btn-primary" (click)="exec()" [disabled]="loading">
+    <i [ngClass]="{'fa-save': !loading, 'fa-sync fa-spin': loading}" class="fas mr-1"></i>
+    <span *ngIf="!loading">Save changes</span>
+    <span *ngIf="loading">Saving...</span>
+</button>
