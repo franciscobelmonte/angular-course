@@ -10,6 +10,8 @@ import { ProtectedComponent } from './components/protected/protected.component';
 // Import routes
 import { APP_ROUTES } from './app.routes';
 
+// Import services
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { APP_ROUTES } from './app.routes';
     BrowserModule,
     APP_ROUTES
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
