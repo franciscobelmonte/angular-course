@@ -2,14 +2,14 @@
 <hr>
 <form novalidate="" (ngSubmit)="save(form)" #form="ngForm">
     <div>
-        <div class="form-group row">
+        <div class="form-group row" [ngClass]="{'has-danger': name.errors && name.touched}">
             <label class="col-2 col-form-label">Name</label>
             <div class="col-8">
                 <input class="form-control" type="text" placeholder="Name" name="name" [(ngModel)]="user.name" required minlength="5" #name="ngModel">
-                <div *ngIf="name.errors?.required">
+                <div *ngIf="name.errors?.required" class="form-control-feedback">
                     This field is required
                 </div>
-                <div *ngIf="name.errors?.minlength">
+                <div *ngIf="name.errors?.minlength" class="form-control-feedback">
                     This field must be at least {{name.errors.minlength.requiredLength}} characters long
                 </div>
             </div>
@@ -43,7 +43,7 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">&nbsp;</label>
         <div class="input-group col-md-8">
-            <button type="submit" class="btn btn-outline-primary">
+            <button type="submit" class="btn btn-outline-primary" [disabled]="form.invalid">
               Save
             </button>
         </div>
