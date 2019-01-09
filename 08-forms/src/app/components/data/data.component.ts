@@ -29,10 +29,17 @@ export class DataComponent {
       'email': new FormControl('', [Validators.required, Validators.email]),
       'hobbies': new FormArray([
         new FormControl('Read books', Validators.required)
-      ])
+      ]),
+      'password1': new FormControl('', Validators.required),
+      'password2': new FormControl()
     });
 
     // this.form.setValue(this.user);
+
+    this.form.controls.password2.setValidators([
+      Validators.required,
+      this.passwordValidation.bind(this)
+    ]);
   }
 
   save () {
@@ -51,6 +58,15 @@ export class DataComponent {
     if (control.value === 'Belmonte') {
       return {
         notBelmonte: true
+      };
+    }
+    return null;
+  }
+
+  passwordValidation(control: FormControl): { [s: string]: boolean } {
+    if (control.value !== this.form.controls.password1.value) {
+      return {
+        notSamePassword: true
       };
     }
     return null;

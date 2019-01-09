@@ -31,6 +31,20 @@
     </div>
 
     <div class="form-group row">
+        <label class="col-2 col-form-label">Password</label>
+        <div class="col-8">
+            <input class="form-control" type="password" placeholder="Password" formControlName="password1">
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">Repeat password</label>
+        <div class="col-8">
+            <input class="form-control" type="password" placeholder="Password" formControlName="password2">
+        </div>
+    </div>
+
+    <div class="form-group row">
         <label class="col-2 col-form-label">Hobbies</label>
         <div class="col-md-8" formArrayName="hobbies">
             <input *ngFor="let hobbie of form.controls.hobbies.controls; let i = index" class="form-control" type="text" placeholder="Email" [formControlName]="i">
