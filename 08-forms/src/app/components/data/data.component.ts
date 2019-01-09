@@ -24,7 +24,7 @@ export class DataComponent {
     this.form = new FormGroup({
       'fullname': new FormGroup({
         'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
-        'surnames': new FormControl('', Validators.required)
+        'surnames': new FormControl('', [Validators.required, this.customValidation])
       }),
       'email': new FormControl('', [Validators.required, Validators.email]),
       'hobbies': new FormArray([
@@ -45,6 +45,15 @@ export class DataComponent {
     (<FormArray>this.form.controls.hobbies).push(
       new FormControl('Running', Validators.required)
     );
+  }
+
+  customValidation (control: FormControl): {[s: string]: boolean} {
+    if (control.value === 'Belmonte') {
+      return {
+        notBelmonte: true
+      };
+    }
+    return null;
   }
 
 }
