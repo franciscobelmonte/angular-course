@@ -1,11 +1,17 @@
 <h4>Forms <small>component</small></h4>
 <hr>
 <form [formGroup]="form" (ngSubmit)="save()">
-    <div>
-        <div class="form-group row">
+    <div formGroupName="fullname">
+        <div class="form-group row" [ngClass]="{'has-danger': form.controls.fullname.controls.name.invalid}">
             <label class="col-2 col-form-label">Name</label>
             <div class="col-8">
                 <input class="form-control" type="text" placeholder="Name" formControlName="name">
+                <div class="form-control-feedback" *ngIf="form.get('fullname.name').errors?.required">
+                    This field is required
+                </div>
+                <div class="form-control-feedback" *ngIf="form.get('fullname.name').errors?.minlength">
+                    This field must be at least {{form.get('fullname.name').errors.minlength.requiredLength}} characters long
+                </div>
             </div>
         </div>
 

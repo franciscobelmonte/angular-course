@@ -11,10 +11,20 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class DataComponent {
   form: FormGroup;
 
+  user: Object = {
+    fullname: {
+      name: 'Francisco',
+      surnames: 'Belmonte'
+    },
+    email: 'fbr@gmail.com'
+  };
+
   constructor() {
     this.form = new FormGroup({
-      'name' : new FormControl('', Validators.required),
-      'surnames': new FormControl('', Validators.required),
+      'fullname': new FormGroup({
+        'name': new FormControl('', [Validators.required, Validators.minLength(3)]),
+        'surnames': new FormControl('', Validators.required)
+      }),
       'email': new FormControl('', [Validators.required, Validators.email])
     });
   }
