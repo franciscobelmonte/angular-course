@@ -42,6 +42,14 @@ export class DataComponent {
       Validators.required,
       this.passwordValidation.bind(this)
     ]);
+
+    this.form.controls.username.valueChanges.subscribe(data => {
+      console.log(data);
+    });
+
+    this.form.controls.username.statusChanges.subscribe(data => {
+      console.log(data);
+    });
   }
 
   save () {
