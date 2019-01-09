@@ -1,18 +1,18 @@
 <h4>Forms <small>component</small></h4>
 <hr>
-<form>
+<form [formGroup]="form" (ngSubmit)="save()">
     <div>
         <div class="form-group row">
-            <label class="col-2 col-form-label">name</label>
+            <label class="col-2 col-form-label">Name</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="name">
+                <input class="form-control" type="text" placeholder="Name" formControlName="name">
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Surnames</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Surnames">
+                <input class="form-control" type="text" placeholder="Surnames" formControlName="surnames">
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Email</label>
         <div class="col-md-8">
-            <input class="form-control" type="email" placeholder="Email">
+            <input class="form-control" type="email" placeholder="Email" formControlName="email">
         </div>
     </div>
 
@@ -32,4 +32,6 @@
             </button>
         </div>
     </div>
+
+    {{form.valid}}
 </form>
