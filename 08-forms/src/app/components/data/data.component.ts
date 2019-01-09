@@ -27,10 +27,14 @@ export class DataComponent {
       }),
       'email': new FormControl('', [Validators.required, Validators.email])
     });
+
+    this.form.setValue(this.user);
   }
 
   save () {
     console.log(this.form);
+
+    this.form.reset(this.user);
   }
 
 }
