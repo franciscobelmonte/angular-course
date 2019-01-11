@@ -66,4 +66,16 @@ export class HeroesService {
         })
       );
   }
+
+  deleteHero (key: string) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.delete(`${this.heroUrl}/${key}.json`, { headers })
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
 }
