@@ -54,4 +54,16 @@ export class HeroesService {
         })
       );
   }
+
+  getHeroes () {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    return this.http.get(this.heroesUrl,  {headers})
+      .pipe(
+        map((data) => {
+          return data;
+        })
+      );
+  }
 }
