@@ -11,9 +11,12 @@ import { HeroesService } from './../../services/heroes.service';
 export class HeroesComponent implements OnInit {
   heroes: any;
 
+  loading = true;
+
   constructor(private _heroesService: HeroesService) {
     this._heroesService.getHeroes().subscribe(heroes => {
       this.heroes = heroes;
+      this.loading = false;
     });
   }
 
