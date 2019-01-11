@@ -12,7 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styles: []
 })
 export class HeroComponent implements OnInit {
-  hero: Hero = {
+  hero: any = {
     name: '',
     publisher: 'Marvel',
     bio: ''
@@ -24,7 +24,15 @@ export class HeroComponent implements OnInit {
     private _heroesService: HeroesService,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
-      this.activatedRoute.params.subscribe(params => this.id = params['id']);
+      this.activatedRoute.params.subscribe(params => {
+        this.id = params['id'];
+        if (this.id !== 'new') {
+          this._heroesService.getHero(this.id)
+            .subscribe(hero => {
+              this.hero = hero;
+            });
+        }
+      });
     }
 
   ngOnInit() {
@@ -47,8 +55,11 @@ export class HeroComponent implements OnInit {
     );
   }
 
-  updateHero() {
-
+  reset(form: NgForm) {
+    this.router.navigate(['/hero', 'new']);
+    form.reset({
+      publisher: 'Marvel'
+    });
   }
 
 }
