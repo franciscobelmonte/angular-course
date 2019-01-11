@@ -9,7 +9,8 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class HeroesService {
-  url = 'https://heroesapp-279d3.firebaseio.com/heroes.json';
+  heroesUrl = 'https://heroesapp-279d3.firebaseio.com/heroes.json';
+  heroUrl = 'https://heroesapp-279d3.firebaseio.com/heroes';
 
   constructor(private http: HttpClient) { }
 
@@ -19,10 +20,23 @@ export class HeroesService {
       'Content-Type': 'application/json'
     });
 
-    return this.http.post(this.url, body, {headers})
+    return this.http.post(this.heroesUrl, body, {headers})
       .pipe(
         map((data) => {
-          console.log(data);
+          return data;
+        })
+      );
+  }
+
+  updateHero (hero: Hero, key: string) {
+    const body = JSON.stringify(hero);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+
+    return this.http.put(`${this.heroUrl}/${key}.json`, body, {headers})
+      .pipe(
+        map((data) => {
           return data;
         })
       );

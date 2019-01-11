@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 
 import { Hero } from './.././../model/hero.interface';
 import { HeroesService } from '../../services/heroes.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -18,16 +18,37 @@ export class HeroComponent implements OnInit {
     bio: ''
   };
 
-  constructor(private _heroesService: HeroesService, private router: Router) { }
+  id: string;
+
+  constructor(
+    private _heroesService: HeroesService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
+      this.activatedRoute.params.subscribe(params => this.id = params['id']);
+    }
 
   ngOnInit() {
   }
 
   save () {
-    this._heroesService.addHero(this.hero)
+    if (this.id === 'new') {
+      this._heroesService.addHero(this.hero)
+        .subscribe(hero => {
+          this.router.navigate(['/hero', hero['name']]);
+        }, error => console.error(error)
+      );
+      return;
+    }
+
+    this._heroesService.updateHero(this.hero, this.id)
       .subscribe(hero => {
-        this.router.navigate(['/hero', hero['name']]);
-      }, error => console.error(error));
+        console.log(hero);
+      }, error => console.error(error)
+    );
+  }
+
+  updateHero() {
+
   }
 
 }
