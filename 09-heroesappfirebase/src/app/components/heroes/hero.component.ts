@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Hero } from './.././../model/hero.interface';
+import { HeroesService } from '../../services/heroes.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,13 +18,16 @@ export class HeroComponent implements OnInit {
     bio: ''
   };
 
-  constructor() { }
+  constructor(private _heroesService: HeroesService, private router: Router) { }
 
   ngOnInit() {
   }
 
   save () {
-    console.log(this.hero);
+    this._heroesService.addHero(this.hero)
+      .subscribe(hero => {
+        this.router.navigate(['/hero', hero['name']]);
+      }, error => console.error(error));
   }
 
 }
