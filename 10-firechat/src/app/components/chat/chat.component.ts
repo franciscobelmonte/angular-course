@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChatService } from '../../providders/chat.service';
 
 @Component({
   selector: 'app-chat',
@@ -8,7 +9,11 @@ import { Component } from '@angular/core';
 export class ChatComponent {
   message = '';
 
-  constructor() { }
+  constructor(public _cs: ChatService) {
+    this._cs.loadMessages().subscribe((messages: any[]) => {
+      console.log(messages);
+    });
+  }
 
   sendMessage () {
     console.log(this.message);
