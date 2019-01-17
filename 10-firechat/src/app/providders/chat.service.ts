@@ -43,9 +43,10 @@ export class ChatService {
 
   sendMessage (message: string) {
     const chat: Message = {
-      name: 'Francisco',
+      name: this.user.name,
       message: message,
-      date: new Date().getTime()
+      date: new Date().getTime(),
+      uid: this.user.uid
     };
 
     return this.collection.add(chat);
