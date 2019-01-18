@@ -6,18 +6,24 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
+import { SearcherComponent } from './components/searcher/searcher.component';
+
+// Import routes
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    MovieComponent
+    MovieComponent,
+    SearcherComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    APP_ROUTES
   ],
   providers: [],
   bootstrap: [AppComponent]
