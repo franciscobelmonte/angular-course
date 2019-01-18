@@ -9,6 +9,8 @@ export class MoviesService {
   private key = '18f50d1b9a9a6e7ae6f3f1d00c33282f';
   private api = 'https://api.themoviedb.org/3';
 
+  movies: any;
+
   constructor(private http: HttpClient) { }
 
   getBoxOffice () {
@@ -38,6 +40,11 @@ export class MoviesService {
   searchMovie (movie: string) {
     const url = `${this.api}/search/movie?query=${movie}&sort_by=popularity.desc&api_key=${this.key}`;
 
-    return this.http.jsonp(url, 'callback');
+    return this.http.jsonp(url, 'callback').pipe(
+      map(data => {
+        this.movies = data['results'];
+        return data;
+      })
+    );
   }
 }
