@@ -6,25 +6,7 @@
 </div>
 
 <div class="container">
-    <h1 class="my-2">Box Office</h1>
-    <div class="row" *ngIf="boxOffice">
-        <div class="col">
-            <div class="row">
-                <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (boxOffice[0] | imageMovie) + ')'}"></div>
-            </div>
-            <div class="row">
-                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[1] | imageMovie) + ')'}"></div>
-                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[2] | imageMovie) + ')'}"></div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="row">
-                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[3] | imageMovie) + ')'}"></div>
-                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[4] | imageMovie) + ')'}"></div>
-            </div>
-            <div class="row">
-                <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (boxOffice[5] | imageMovie) + ')'}"></div>
-            </div>
-        </div>
-    </div>
+    <app-gallery [movies]="boxOffice | slice:0:6" title="Box Office"></app-gallery>
+    <app-gallery [movies]="popular | slice:0:6" title="Most popular movies"></app-gallery>
+    <app-gallery [movies]="childrenPopular | slice:0:6" title="Most popular children movies"></app-gallery>
 </div>

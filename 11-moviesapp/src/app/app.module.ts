@@ -13,6 +13,7 @@ import { APP_ROUTES } from './app.routes';
 
 // Import pipes
 import { ImageMoviePipe } from './pipes/image-movie.pipe';
+import { GalleryComponent } from './components/home/gallery.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ImageMoviePipe } from './pipes/image-movie.pipe';
     HomeComponent,
     MovieComponent,
     SearcherComponent,
-    ImageMoviePipe
+    ImageMoviePipe,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,

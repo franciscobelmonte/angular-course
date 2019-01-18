@@ -1,0 +1,22 @@
+<h1 class="mt-3">{{ title }}</h1>
+
+<div class="row" *ngIf="movies">
+    <div class="col">
+        <div class="row">
+            <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (movies[0] | imageMovie) + ')'}"></div>
+        </div>
+        <div class="row">
+            <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (movies[1] | imageMovie) + ')'}"></div>
+            <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (movies[2] | imageMovie) + ')'}"></div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (movies[3] | imageMovie) + ')'}"></div>
+            <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (movies[4] | imageMovie) + ')'}"></div>
+        </div>
+        <div class="row">
+            <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (movies[5] | imageMovie) + ')'}"></div>
+        </div>
+    </div>
+</div>

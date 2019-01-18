@@ -29,7 +29,7 @@ export class MoviesService {
     return this.http.jsonp(url, 'callback');
   }
 
-  getChildrePopularMovies () {
+  getChildrenPopularMovies () {
     const url = `${this.api}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.key}`;
 
     return this.http.jsonp(url, 'callback');
