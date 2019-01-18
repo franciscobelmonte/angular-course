@@ -11,13 +11,17 @@ import { SearcherComponent } from './components/searcher/searcher.component';
 // Import routes
 import { APP_ROUTES } from './app.routes';
 
+// Import pipes
+import { ImageMoviePipe } from './pipes/image-movie.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
     MovieComponent,
-    SearcherComponent
+    SearcherComponent,
+    ImageMoviePipe
   ],
   imports: [
     BrowserModule,

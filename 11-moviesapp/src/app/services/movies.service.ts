@@ -11,8 +11,26 @@ export class MoviesService {
 
   constructor(private http: HttpClient) { }
 
+  getBoxOffice () {
+    const from = new Date();
+
+    const to = new Date();
+    to.setDate(from.getDate() + 7);
+
+    // tslint:disable-next-line:max-line-length
+    const url = `${this.api}/discover/movie?primary_release_date.gte=${from.getFullYear()}-${from.getMonth() + 1}-${from.getDate()}&primary_release_date.lte=${to.getFullYear()}-${to.getMonth() + 1}-${to.getDate()}&api_key=${this.key}`;
+
+    return this.http.jsonp(url, 'callback');
+  }
+
   getPopularMovies () {
     const url = `${this.api}/discover/movie?sort_by=popularity.desc&api_key=${this.key}`;
+
+    return this.http.jsonp(url, 'callback');
+  }
+
+  getChildrePopularMovies () {
+    const url = `${this.api}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.key}`;
 
     return this.http.jsonp(url, 'callback');
   }

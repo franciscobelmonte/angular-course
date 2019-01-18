@@ -4,3 +4,27 @@
         <p class="lead">This is a movies application.</p>
     </div>
 </div>
+
+<div class="container">
+    <h1 class="my-2">Box Office</h1>
+    <div class="row" *ngIf="boxOffice">
+        <div class="col">
+            <div class="row">
+                <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (boxOffice[0] | imageMovie) + ')'}"></div>
+            </div>
+            <div class="row">
+                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[1] | imageMovie) + ')'}"></div>
+                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[2] | imageMovie) + ')'}"></div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[3] | imageMovie) + ')'}"></div>
+                <div class="col container-pic2" [ngStyle]="{'background-image': 'url(' + (boxOffice[4] | imageMovie) + ')'}"></div>
+            </div>
+            <div class="row">
+                <div class="col container-pic1" [ngStyle]="{'background-image': 'url(' + (boxOffice[5] | imageMovie) + ')'}"></div>
+            </div>
+        </div>
+    </div>
+</div>
