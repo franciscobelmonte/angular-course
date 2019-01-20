@@ -5,14 +5,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ImageMoviePipe implements PipeTransform {
 
-  transform(movie: any): string {
-    const poster = movie.backdrop_path || movie.poster_path;
+  transform(movie: any, poster: boolean = false): string {
+    let image = movie.backdrop_path || movie.poster_path;
 
-    if (!poster) {
+    if (poster) {
+      image = movie.poster_path;
+    }
+
+    if (!image) {
       return 'assets/images/noimage.jpg';
     }
 
-    return 'http://image.tmdb.org/t/p/w500' + poster;
+    return 'http://image.tmdb.org/t/p/w500' + image;
   }
 
 }

@@ -47,4 +47,10 @@ export class MoviesService {
       })
     );
   }
+
+  getMovie (id: string) {
+    const url = `${this.api}/movie/${id}?api_key=${this.key}`;
+
+    return this.http.jsonp(url, 'callback');
+  }
 }
