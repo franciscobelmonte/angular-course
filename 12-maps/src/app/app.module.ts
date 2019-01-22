@@ -25,7 +25,7 @@ import { EditMapComponent } from './components/map/edit-map.component';
     BrowserAnimationsModule,
     MaterialModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDLxFw7FUyRVqJ-ZXwZ7YlOTABxFRp418k'
+      apiKey: ''
     })
   ],
   providers: [],
