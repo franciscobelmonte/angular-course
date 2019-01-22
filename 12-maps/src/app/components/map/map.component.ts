@@ -25,6 +25,11 @@ export class MapComponent implements OnInit {
     this.saveToStorage();
   }
 
+  deleteMarker (index) {
+    this.markers.splice(index, 1);
+    this.saveToStorage();
+  }
+
   saveToStorage () {
     localStorage.setItem('markers', JSON.stringify(this.markers));
   }
