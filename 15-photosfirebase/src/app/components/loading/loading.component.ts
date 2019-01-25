@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FileItem } from './../../models/file-item';
+import { UploadService } from './../../services/upload.service';
 
 @Component({
   selector: 'app-loading',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class LoadingComponent implements OnInit {
+  photos: FileItem[] = [];
 
-  constructor() { }
+  constructor(public _us: UploadService) { }
 
   ngOnInit() {
+  }
+
+  uploadPhotos () {
+    this._us.uploadPhotos(this.photos);
   }
 
 }
