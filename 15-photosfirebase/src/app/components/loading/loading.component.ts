@@ -9,6 +9,7 @@ import { UploadService } from './../../services/upload.service';
 })
 export class LoadingComponent implements OnInit {
   photos: FileItem[] = [];
+  userEnterInDropZone = false;
 
   constructor(public _us: UploadService) { }
 

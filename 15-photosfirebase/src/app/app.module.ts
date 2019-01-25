@@ -11,12 +11,14 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { APP_ROUTES } from './app.routes';
 
 import { environment } from '../environments/environment';
+import { NgDropPhotosDirective } from './directives/ng-drop-photos.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
-    LoadingComponent
+    LoadingComponent,
+    NgDropPhotosDirective
   ],
   imports: [
     BrowserModule,
