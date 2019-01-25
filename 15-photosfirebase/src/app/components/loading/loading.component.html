@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-4">
         <h3>Select photos...</h3>
-        <div appNgDropPhotos (mouseEnter)="userEnterInDropZone = $event;" [ngClass]="{'file-over': userEnterInDropZone}" class="well drop-zone">
+        <div appNgDropPhotos (mouseEnter)="userEnterInDropZone = $event;" [photos]="photos" [ngClass]="{'file-over': userEnterInDropZone}" class="well drop-zone">
             <h4>Drop photos here</h4>
             <img src="assets/images/drop-images.png">
         </div>
