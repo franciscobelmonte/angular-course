@@ -4,11 +4,13 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { LinearComponent } from './components/linear/linear.component';
+import { BarComponent } from './components/bar/bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LinearComponent
+    LinearComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,
