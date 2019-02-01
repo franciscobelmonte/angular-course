@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { LinearComponent } from './components/linear/linear.component';
 import { BarComponent } from './components/bar/bar.component';
 import { DoughnutComponent } from './components/doughnut/doughnut.component';
+import { RadarComponent } from './components/radar/radar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LinearComponent,
     BarComponent,
-    DoughnutComponent
+    DoughnutComponent,
+    RadarComponent
   ],
   imports: [
     BrowserModule,
