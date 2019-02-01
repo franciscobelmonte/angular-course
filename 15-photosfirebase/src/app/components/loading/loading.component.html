@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let photo of photos">
-                    <td>{{ photo.filename }}</td>
+                    <td [ngClass]="{'text-green': photo.progress >= 100}">{{ photo.filename }}</td>
                     <td>{{ photo.file.size / 1024 / 1024 | number:'.2-2' }} MB</td>
                     <td>
                         <div class="progress">
