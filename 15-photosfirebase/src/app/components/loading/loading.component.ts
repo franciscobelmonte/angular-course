@@ -20,4 +20,8 @@ export class LoadingComponent implements OnInit {
     this._us.uploadPhotos(this.photos);
   }
 
+  cleanPhotos () {
+    this.photos = [];
+  }
+
 }

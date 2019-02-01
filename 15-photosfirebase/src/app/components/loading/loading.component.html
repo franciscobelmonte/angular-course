@@ -9,7 +9,7 @@
     <div class="col-md-8">
         <h4>Load photos</h4>
         <button (click)="uploadPhotos()" [disabled]="photos.length === 0" class="btn btn-success">Upload photos to Firebase</button>
-        <button class="btn btn-danger ml-2">Clean</button>
+        <button (click)="cleanPhotos()" class="btn btn-danger ml-2">Clean</button>
         <table class="table">
             <thead class="theade-darl">
                 <tr>
@@ -19,12 +19,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>XYZ</td>
-                    <td>12 MB</td>
+                <tr *ngFor="let photo of photos">
+                    <td>{{ photo.filename }}</td>
+                    <td>{{ photo.file.size / 1024 / 1024 | number:'.2-2' }} MB</td>
                     <td>
                         <div class="progress">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;"></div>
+                            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': photo.progress + '%'}" style="width: 25%;"></div>
                         </div>
                     </td>
                 </tr>
